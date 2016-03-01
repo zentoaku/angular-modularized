@@ -1,0 +1,23 @@
+<div id="MainMenuDiv" class="tabbable tabs-left">
+   <button type="button" class="btn btn-navbar sidebar_switch" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <ul id="MainMenuSubDiv" class="nav nav-tabs nav-list nav-collapse collapse">
+        <li ng-repeat="item in items" href="#/{{item}}" class="{{item}}" ng-switch="item">
+            <a id="{{item}}" class="menu-{{item}}" href="/#/{{item}}" title="{{label('label_main_menu_'+item)}}" ng-switch-default>
+                {{label('label_main_menu_'+item)}}
+            </a>
+            <a id="{{item}}" class="menu-{{item}}" href="/#/{{item}}" title="{{label('label_main_menu_'+item)}}" ng-switch-when='rules'>
+                {{label('label_main_menu_'+item)}}
+                <span class="trigger-scheduler-setting-icon">&nbsp;<img style="margin-top: -1px; margin-left: -8px;" ng-src="../styles/img/icons/rules_alarm_icon.png" ng-controller="RuleListCtrl" 
+                     ng-cloak ng-show="showNotificationIcon"/></span> 
+            </a>
+            <a id="{{item}}" class="menu-{{item}}" href="/#/{{item}}" title="{{label('label_main_menu_'+item)}}" ng-switch-when="newsfeed">
+                {{label('label_main_menu_'+item)}}
+                <span class="counter" ng-show="newsCounter > 0" ng-cloak>{{newsCounter}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

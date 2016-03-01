@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html ng-app="NgModular">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>NgModular</title>
+        <meta name="description" content="NgModular" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+        <link rel="icon" type="image/png" href="favicon.ico" />
+
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="styles/vendor/bootstrap-responsive.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="styles/web.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="styles/app.css" media="all" />
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+
+
+
+        <!--SOURCES_FOR_COMPILATION-->
+        <script src="bower_components//jquery-i18n-properties/jquery.i18n.properties.js"></script>
+        <script src="bower_components/lodash/lodash.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+
+        <!--END_SOURCES_FOR_COMPILATION-->
+    </head>
+    <body class="webapp">
+        <!--[if lt IE 9]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div class="wrapper 1column">
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="row-fluid page-header-cont">
+                        <div class="span12">
+
+                        </div>
+                    </div>
+                    <div ng-controller="IndexCtrl" class="navbar navtop" ng-cloak>
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="brand" href="{{label('label_homepage_url')}}">
+                                    <img src="styles/img/NgModular.png" alt="NgModular"  title="NgModular" />
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- page header -->
+
+                <noscript>
+                <div class="global-site-notice noscript">
+                    <div class="notice-inner">
+                        <p>
+                            <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                            You must have JavaScript enabled in your browser to utilize the functionality of this website.</p>
+                    </div>
+                </div>
+                </noscript>
+
+                <!-- Add your site or application content here -->
+                <div id="app-viewport" ng-view ></div>
+
+                <div ng-controller="IndexCtrl" class="footer-container" ng-cloak>
+                    <div class="row-fluid">
+
+                        <div class="span4">
+                            <div ng-show="showIfLanguageAllowed()">
+                                <ul class="unstyled pull-left">
+                                    <li><a href="{{label('label_homepage_url')}}">{{label('label_homepage')}}</a></li>
+                                    <li><a href="{{label('label_about_url')}}">{{label('label_about')}}</a></li>
+                                    <li><a href="{{label('label_faq_url')}}">{{label('label_faq')}}</a></li>
+                                </ul>
+                                <ul class="unstyled pull-left">
+                                    <li><a href="{{label('label_contact_url')}}">{{label('label_contact')}}</a></li>
+                                    <li><a target="_blank" href="{{label('label_presse_url')}}">{{label('label_presse')}}</a></li>
+                                    <li><a href="{{label('label_blog_url')}}">{{label('label_blog')}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="span3">
+                            <div ng-show="showIfLanguageAllowed()" class="footer-icons">
+                                <label>{{label('label_follow')}}</label>
+                                <ul class="social_items">
+                                    <li>
+                                        <div class="fb-like"
+                                             data-href="https://www.facebook.com/"
+                                             data-send="false"
+                                             data-layout="button_count"
+                                             data-width="450"
+                                             data-show-faces="false"
+                                             data-font="arial">&nbsp;
+                                        </div>
+
+                                    </li>
+
+                                    <li>
+                                        <a class="twitter-follow-button"
+                                           href="https://twitter.com/twitter"
+                                           data-show-count="false"
+                                           data-lang="de"
+                                           data-show-screen-name="false">
+                                            @twitter folgen
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <!-- Place this tag where you want the widget to render. -->
+                                        <div class="g-follow"
+                                             data-annotation="none"
+                                             data-height="20"
+                                             data-href="https://plus.google.com/"
+                                             data-rel="publisher">
+                                            &nbsp;
+                                        </div>
+
+                                        <!-- Place this tag after the last widget tag. -->
+                                        <script type="text/javascript">// <![CDATA[
+                                                    window.___gcfg = {lang: 'en'};
+                                                    // ]]></script>
+                                    </li>
+
+                                    <li>
+                                        <a href="http://www.youtube.com/">
+                                            <img src="styles/img/buttons/YouTube_logo_standard_white.png" alt="" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="span1">
+                            <div ng-controller="LanguageSwitchCtrl" ng-cloak>
+                                <div lang-switch="exp"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12 text-right">
+                            <p>&nbsp;</p>
+                            <a href="https://github.com/zentoaku/angular-modularized" target="_blank">https://github.com/zentoaku/angular-modularized</a>&nbsp;&nbsp;&nbsp;
+                            <a href="{{label('label_copyright_url')}}">{{label('label_copyright')}}</a>&nbsp;&nbsp;&nbsp;
+                            <a href="{{label('label_data_protection_url')}}">{{label('label_data_protection')}}</a>&nbsp;&nbsp;&nbsp;
+                            <a href="{{label('label_terms_url')}}">{{label('label_terms')}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fade">
+            <div id="overlay">
+                <div id="warningGradientOuterBarG">
+                    <div id="warningGradientFrontBarG" class="warningGradientAnimationG">
+                        <div class="warningGradientBarLineG"></div>
+                        <div class="warningGradientBarLineG"></div>
+                        <div class="warningGradientBarLineG"></div>
+                        <div class="warningGradientBarLineG"></div>
+                        <div class="warningGradientBarLineG"></div>
+                        <div class="warningGradientBarLineG"></div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>

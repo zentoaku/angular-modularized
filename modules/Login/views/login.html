@@ -1,0 +1,17 @@
+<div class="row-fluid">
+    <form name="login" ng-submit="submitLogin()" id="login">
+        <div class="control-group">
+            <input id="main-login-email" name="login-email" type="email" ng-model="email" required placeholder="{{label('label_email')}}" />
+        </div>
+        <div class="control-group">
+            <input id="main-login-password" name="usr-password" type="password" ng-model="password" required placeholder="{{label('label_password')}}" />
+        </div>
+        <div class="control-group">
+            <input id="main-login-submit" class="btn btn-large span12" type="submit" value="{{label('label_login')}}"/>
+        </div>
+    </form>
+    <ul class="unstyled pagination-centered">
+        <li><a id="main-register" href="/#/register">{{label('label_new_at')}}</a></li>
+        <li><a id="main-forgot" href="/#/forgot">{{label('label_forgot')}}</a></li>
+    </ul>
+</div>

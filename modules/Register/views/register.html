@@ -1,0 +1,90 @@
+<!-- Disable enter key in IE8 -->
+<!--[if IE 8]>
+<script type="text/javascript">
+    angular.element(document).keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+</script>
+<![endif]-->
+<div class="row-fluid">
+    <form name="registration" class="form-horizontal">
+        <div class="control-group">
+            <label class="radio inline">
+                <input type="radio" ng-model="user.salutation" id="salutation-mr" value="Mr" checked /> {{label("label_salutation_mr")}}
+            </label>
+            <label class="radio inline">
+                <input type="radio" ng-model="user.salutation" id="salutation-ms" value="Ms" /> {{label("label_salutation_ms")}}
+            </label>
+            <div class="pull-right control-group">
+                <span>{{label('label_country')}}:
+                    <select id="country" class="select-style" ng-model="user.country" required>
+                        <option value="DE">{{label('label_country_name_de')}}</option>
+                        <option value="FR">{{label('label_country_name_fr')}}</option>
+                        <option value="AT">{{label('label_country_name_at')}}</option>
+                        <option value="SE">{{label('label_country_name_se')}}</option>
+                        <option value="CH">{{label('label_country_name_ch')}}</option>
+                        <option value="CZ">{{label('label_country_name_cz')}}</option>
+                        <option value="NL">{{label('label_country_name_nl')}}</option>
+                        <option value="HQ">{{label('label_country_name_hq')}}</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="control-group">
+            <input type="text" ng-model="user.firstname" placeholder='{{label("label_first_name")}}' id="firstname" maxlength="32" required />
+        </div>
+        <div class="control-group">
+            <input type="text" ng-model="user.lastname" placeholder='{{label("label_surname")}}' id="lastname" maxlength="32" required />
+        </div>
+        <div class="control-group">
+            <input type="email" ng-model="user.email" pattern="{{emailPattern}}" placeholder='{{label("label_email")}}' id="email" maxlength="64" required />
+        </div>
+        <div class="control-group">
+            <input ng-model="user.password" ng-change="passStrength()" type="password" placeholder='{{label("label_password")}}' id="password" maxlength="32" required />
+            <div class="text-error" ng-hide="user.firstname == null || user.firstname == 0 || passDoesntContainFirstName">{{label("label_not_contains_first_name")}}</div>
+            <div class="text-error" ng-hide="user.lastname == null || user.lastname == 0 || passDoesntContainSurname">{{label("label_not_contains_surname")}}</div>
+            <div class="text-error" ng-show="user.password.length != 0 && (user.password.length < 8 || passDoesntContainUpperCase() || passDoesntContainLowerCase() || passDoesntContainNumber || passDoesntContainSymbol)">{{label("label_password_prerequisites_part1")}}
+                <span ng-show="passDoesntContainUpperCase() || passDoesntContainLowerCase() || passDoesntContainNumber || passDoesntContainSymbol">{{label("label_password_prerequisites_part2")}}</span>
+                <ul>
+                    <li ng-show="passDoesntContainUpperCase()">{{label("label_password_one_uppercase")}}</li>
+                    <li ng-show="passDoesntContainLowerCase()">{{label("label_password_one_lowercase")}}</li>
+                    <li ng-show="passDoesntContainNumber">{{label("label_password_one_number")}}</li>
+                    <li ng-show="passDoesntContainSymbol">{{label("label_password_one_symbol")}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="control-group">
+            <input ng-model="user.retypePassword" type="password" placeholder='{{label("label_retype_password")}}' id="retype-password" maxlength="32" required />
+            <ul>
+                <li id="password_no_match_text" class="text-error" ng-hide="user.retypePassword.length == null || user.password == user.retypePassword">{{label("label_passwords_doesnt_match")}}</li>
+            </ul>
+        </div>
+        <div class="control-group">
+            <div id="usr-password-description">{{label(strengthDesc)}}</div>
+            <div id="usr-password-strength" ng-class="strengthMetterClass" class="img-rounded"></div>
+        </div>
+        <div class="control-group">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="user.newsletterFlag" id="subscription"> {{label("label_subscribe")}}
+            </label>
+        </div>
+        <div class="control-group">
+            <input type="text" ng-model="captcha.response" placeholder='{{label("label_enter_captcha")}}' id="captcha-response" required />
+        </div>
+        <div class="control-group">
+            <img id="captcha-image" ng-src="{{img_src}}" style="vertical-align: bottom;">
+            <button class="btn btn-mini" ng-click="loadCaptcha()"><i class="icon-refresh"></i> {{label("label_cannot_read")}}</button>
+        </div>
+        <div class="control-group text-center">
+            <input id="btn-submit"
+                   class="btn"
+                   ng-disabled="!(registration.$valid && passwordsMatch && user.salutation != '')"
+                   type="submit"
+                   ng-click="submitClick()"
+                   value="{{label('label_register')}}"/>
+        </div>
+    </form>
+</div>

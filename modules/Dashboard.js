@@ -1,0 +1,1 @@
+angular.module("#Dashboard",["Events","SystemHealth"]).config(["$routeProvider",function(o){o.when("/",{templateUrl:"modules/Dashboard/views/dashboard.html",controller:"DashboardController"})}]),angular.module("#Dashboard").controller("DashboardController",[function(){}]);

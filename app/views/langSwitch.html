@@ -1,0 +1,7 @@
+<div class="btn-group pull-right langswitch" languages="languages">
+    <button id="language-switch" class="btn dropdown-toggle ng-binding" data-toggle="dropdown">{{label('label_lang_' + getCurrentLanguage())}}</button>
+
+    <ul class="dropdown-menu">
+        <li ng-repeat="language in languages" class="ng-scope"><a id="language-{{language}}" ng-click="setCurrentLanguage(language)">{{label('label_lang_' + language)}}</a></li>
+    </ul>
+</div>

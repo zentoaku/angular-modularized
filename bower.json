@@ -1,0 +1,19 @@
+{
+  "name": "Angular Modularized",
+  "description": "Example angular project structure, splitted to modules and plugins with generation scripts.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/zentoaku/angular-modularized",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-mocks": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "jquery": "2.1.1",
+    "bootstrap": "~3.3.4",
+    "restangular": "~1.5.1",
+    "jquery-i18n-properties": "~1.2.0",
+    "angular-cache": "4.3.2"
+  }
+}

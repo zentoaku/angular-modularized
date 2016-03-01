@@ -1,0 +1,4 @@
+<div ng-repeat="alert in alerts" class="alert {{ alert.getClass() }}"><span class="counter" ng-if="alert.getCount() > 1">{{ alert.getCount() }}</span>
+    {{ label( alert.getMsg() ) }}
+    <span class="close" ng-click="closeAlert(alert)">x</span>
+</div>

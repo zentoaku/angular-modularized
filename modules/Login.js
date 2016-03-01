@@ -1,0 +1,1 @@
+angular.module("#Login",["User","Auth"]).config(["$routeProvider",function(o){o.when("/unauthorized",{templateUrl:"modules/Login/views/login.html",controller:"LoginCtrl","public":!0})}]),angular.module("#Login").controller("LoginCtrl",["$scope","User",function(o,n){o.submitLogin=function(){n.login(o.email,o.password)}}]);
